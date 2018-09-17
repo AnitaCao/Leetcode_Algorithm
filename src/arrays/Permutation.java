@@ -89,28 +89,37 @@ public class Permutation {
 	 * @return
 	 */
 	public static int PermutationSequence(int n, int k){
+		
 		k--;
+		
 		//put all the numbers for array into an arraylist, easy to remove.
 		List<Integer> numList = new ArrayList<>();
-		for (int i = 0; i < n; i++) 
-			numList.add(i);
+		for (int i = 1; i <= n; i++) 
+			numList.add(i);  // number from 1 to n-1 has been added to list, and it is in order.
 		
 		int factorial = 1;
-		for (int i = 1; i < n; i++) {
-			factorial *= i;
+		for (int i = 1; i <= n; i++) {
+			factorial *= i;  //after the loop, factorial is equal to (n)!
 		}
 		
+		if(k > factorial){
+			return -1; // k is bigger than the number of all permutations.
+		}
 		
+		StringBuilder resultString = new StringBuilder(); 
+		int index;
+		while(n>0){
+			
+			factorial = factorial/(n);
+			index = k/factorial;
+			k = k%factorial;
+			resultString.append(numList.get(index));
+			numList.remove(index);
+			n--;
+			
+		}
 		
-		
-		
-		
-		
-		int result = 0;
-		
-		
-		
-		return result;
+		return Integer.parseInt(resultString.toString());
 		
 		
 		
@@ -118,11 +127,13 @@ public class Permutation {
 	
 	public static void main(String[] args){
 		//int[] A = {6,5,4,8,7,5,1};
-		int[] A = {4,3,2,1};
-		A = nextPermutation(A);
-		for (int i = 0; i < A.length; i++) {
-			System.out.print(A[i] + " ");
-		}
+//		int[] A = {4,3,2,1};
+//		A = nextPermutation(A);
+//		for (int i = 0; i < A.length; i++) {
+//			System.out.print(A[i] + " ");
+//		}
+		
+		System.out.println(PermutationSequence(5,16));
 	}
 	
 
