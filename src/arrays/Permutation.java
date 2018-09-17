@@ -1,5 +1,8 @@
 package arrays;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 
  * @author Ting.Cao
@@ -63,6 +66,53 @@ public class Permutation {
 			A[end] = temp1;
 			end --;
 		}
+		
+	}
+	
+	/**
+	 *  The set [1,2,3,бн,n] contains a total of n! unique permutations.
+
+		By listing and labeling all of the permutations in order,
+		We get the following sequence (ie, for n = 3):
+		
+		"123"
+		"132"
+		"213"
+		"231"
+		"312"
+		"321"
+		Given n and k, return the kth permutation sequence.
+		
+		Note: Given n will be between 1 and 9 inclusive.
+	 * @param A
+	 * @param k
+	 * @return
+	 */
+	public static int PermutationSequence(int n, int k){
+		k--;
+		//put all the numbers for array into an arraylist, easy to remove.
+		List<Integer> numList = new ArrayList<>();
+		for (int i = 0; i < n; i++) 
+			numList.add(i);
+		
+		int factorial = 1;
+		for (int i = 1; i < n; i++) {
+			factorial *= i;
+		}
+		
+		
+		
+		
+		
+		
+		
+		int result = 0;
+		
+		
+		
+		return result;
+		
+		
 		
 	}
 	
